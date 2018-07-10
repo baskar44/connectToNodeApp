@@ -8,6 +8,11 @@ app.get("/", (req, res) => {
   res.send("Hello from root.")
 })
 
+app.get("/users", (req, res) => {
+  console.log("Nodemon auto updates when I save this file")
+  res.send("Hello from /users.")
+})
+
 // localhost:3003
 app.listen(3003, () => {
   console.log("Server is up and listening on 3003...")
