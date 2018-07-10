@@ -2,6 +2,9 @@
 
 const express = require('express')
 const app = express()
+const morgan = require('morgan')
+
+app.use(morgan('short'))
 
 app.get("/", (req, res) => {
   console.log("Responding to root route")
@@ -9,8 +12,11 @@ app.get("/", (req, res) => {
 })
 
 app.get("/users", (req, res) => {
-  console.log("Nodemon auto updates when I save this file")
-  res.send("Hello from /users.")
+  const dom = {firstName: "Dom", lastName: "Cobb"}
+  const joseph = {firstName: "Joseph", lastName: "Gordon-Levitt"}
+  const ellen = {firstName: "Ellen", lastName: "Page"}
+  res.json([dom, joseph, ellen])
+  //res.send("Nodemon auto updates when I save this file")
 })
 
 // localhost:3003
